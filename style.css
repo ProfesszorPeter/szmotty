@@ -10,8 +10,8 @@
     color-scheme: dark;
     --paper: #fff;
     --blue: #526f80;
-    --green: #18770f;
-    --active-blue: #2a648f;
+    --green:#5da5e5;
+    --active-blue: #B76E66;
     --menu-height: 5.25rem;
     --page-padding: clamp(1.25rem, 6vw, 6rem);
 }
