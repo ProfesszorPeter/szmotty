@@ -120,10 +120,11 @@ p, figure, h1 {
     margin-inline: auto;
 }
 
-/* A bemutatkozás és a portrék a terv sorrendjét követik. */
+/* A bemutatkozás és a portrék a terv sorrendjét követik. 
 .about {
     background: url("assets/images/rolunk-hatter.webp") center top / 100% auto no-repeat;
 }
+*/
 
 .intro,
 .member {
