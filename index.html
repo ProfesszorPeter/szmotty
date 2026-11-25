@@ -1,23 +1,33 @@
-<!DOCTYPE html>
-<html lang="hu-HU">
+<!doctype html>
+<html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A Szmötty zenekar bemutatkozása, fotói, élő felvételei és elérhetősége.">
     <title>Szmötty</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: #7599ac;">
-    <menu>
-        <li><a href="#">Kezdőlap</a></li>
-        <li><a href="#">Rólunk</a></li>
-        <li><a href="#">Kapcsolat</a></li>
-    </menu>
-    <main>
-        <img src="img/Artboard 15_1.png" alt="Szmötty" id="logo">
-        <img src="img/háttér - 00000001.jpg" id="background">
+<body>
+    <a class="skip-link" href="#tartalom">Ugrás a tartalomra</a>
+
+    <header class="site-header">
+        <nav aria-label="Főmenü">
+            <ul class="menu">
+                <li><a href="rolunk.html">Rólunk</a></li>
+                <li><a href="galeria.html">Galéria</a></li>
+                <li><a href="live.html">Live</a></li>
+                <li><a href="linktree.html">(Linktree)</a></li>
+                <li><a href="kapcsolat.html">Kapcsolat</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="tartalom" tabindex="-1">
+        <section class="page hero" id="fooldal" aria-labelledby="fooldal-cim">
+            <h1 id="fooldal-cim">
+                <img src="assets/images/szmotty-logo.png" alt="Szmötty" width="1000" height="190">
+            </h1>
+        </section>
     </main>
-    <footer>
-        <p>Copyright 2026 Szmötty</p>
-    </footer>
 </body>
 </html>

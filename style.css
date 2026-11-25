@@ -1,12 +1,301 @@
-#logo {
-    width: 50%;
-    height: 50%;
+@font-face {
+    font-family: "Elegant Typewriter";
+    src: url("assets/fonts/elegant-typewriter-light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
 }
-background img {
-    width: 75%;
-    height: 75%;
+
+:root {
+    color-scheme: dark;
+    --paper: #fff;
+    --blue: #526f80;
+    --green: #18770f;
+    --active-blue: #2a648f;
+    --menu-height: 5.25rem;
+    --page-padding: clamp(1.25rem, 6vw, 6rem);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--paper);
+    background: var(--blue);
+    font: 300 clamp(1rem, 1.65vw, 1.375rem)/1.42 "Elegant Typewriter", "Courier New", monospace;
+}
+
+a {
+    color: inherit;
+    text-underline-offset: 0.16em;
+}
+
+a:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+p, figure, h1 {
+    margin: 0;
+}
+
+.visually-hidden,
+.skip-link:not(:focus) {
     position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.skip-link:focus {
+    position: fixed;
+    z-index: 2;
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--active-blue);
+}
+
+/* A menü görgetés közben is elérhető marad. */
+.site-header {
+    position: sticky;
+    z-index: 1;
     top: 0;
-    left: 0;
-    z-index: -1;
+    height: var(--menu-height);
+    margin-bottom: calc(-1 * var(--menu-height));
+    padding: clamp(0.75rem, 3.5vh, 2rem) 1rem 0.5rem;
+    pointer-events: none;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(0.4rem, 2.6vw, 2.25rem);
+    width: min(100%, 72rem);
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.menu a {
+    display: grid;
+    min-height: 2.625rem;
+    place-items: center;
+    padding: 0.15em;
+    border: 1px solid rgb(255 255 255 / 78%);
+    background: var(--green);
+    font-size: clamp(0.875rem, 1.7vw, 1.375rem);
+    line-height: 1.15;
+    white-space: nowrap;
+    pointer-events: auto;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+    background: var(--active-blue);
+}
+
+.page {
+    min-height: 100svh;
+    padding-top: calc(var(--menu-height) + 1.5rem);
+}
+
+.hero {
+    background: #316e9d url("assets/images/nyitokep.webp") center / cover no-repeat;
+}
+
+.hero h1 {
+    width: min(47vw, 52rem);
+    margin-inline: auto;
+}
+
+/* A bemutatkozás és a portrék a terv sorrendjét követik. */
+.about {
+    background: url("assets/images/rolunk-hatter.webp") center top / 100% auto no-repeat;
+}
+
+.intro,
+.member {
+    display: grid;
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6rem);
+    width: min(100%, 96rem);
+    margin-inline: auto;
+    padding: 1rem var(--page-padding) 3rem;
+}
+
+.intro {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.85fr);
+    min-height: calc(100svh - var(--menu-height) - 1.5rem);
+}
+
+.intro img {
+    width: min(100%, 23rem);
+    justify-self: center;
+    border: 2px solid var(--paper);
+}
+
+.intro p {
+    padding: clamp(0.6rem, 1.5vw, 1.25rem);
+    background: rgb(26 48 60 / 55%);
+}
+
+.member {
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    min-height: min(86svh, 54rem);
+}
+
+.member p {
+    max-width: 47ch;
+}
+
+.member img {
+    width: min(100%, 24rem);
+    justify-self: center;
+}
+
+/* Galéria, élő felvételek és elérhetőségek. */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.55rem, 2vw, 2rem);
+    width: min(100%, 96rem);
+    margin-inline: auto;
+    padding: 0 var(--page-padding) 3rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.live {
+    background: linear-gradient(rgb(25 33 38 / 63%), rgb(25 33 38 / 63%)),
+        url("assets/images/live-hatter.webp") center / cover no-repeat;
+}
+
+.videos {
+    display: grid;
+    gap: 2.5rem;
+    width: min(100% - 2 * var(--page-padding), 54rem);
+    margin-inline: auto;
+    padding-bottom: 3rem;
+}
+
+.videos iframe {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    background: #192126;
+}
+
+.videos figcaption {
+    margin-top: 0.5rem;
+}
+
+.linktree {
+    background: linear-gradient(#426678, var(--blue));
+}
+
+.linktree-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem 4rem;
+    width: min(100% - 2 * var(--page-padding), 64rem);
+    margin: clamp(2rem, 13vh, 9rem) auto 0;
+    padding-bottom: 3rem;
+}
+
+.linktree-content img {
+    width: min(100%, 20rem);
+    padding: 1rem;
+    background: white;
+}
+
+.contact {
+    background: #075482 url("assets/images/kapcsolat-hatter.webp") center / cover no-repeat;
+}
+
+.booking {
+    width: fit-content;
+    max-width: calc(100% - 2 * var(--page-padding));
+    margin: clamp(2rem, 18vh, 12rem) var(--page-padding) 0;
+    padding: 0.75rem 1rem;
+    background: rgb(15 46 69 / 58%);
+    font-style: normal;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 44rem) {
+    .hero {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        background: linear-gradient(#1c5982 25%, #244654 75%);
+    }
+
+    .hero::before {
+        position: absolute;
+        z-index: -1;
+        top: 58%;
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        transform: translateY(-58%);
+        background: url("assets/images/nyitokep-mobil.webp") center / cover no-repeat;
+        mask-image: linear-gradient(transparent, black 18%, black 84%, transparent);
+        content: "";
+    }
+
+    .hero h1 {
+        width: min(78vw, 26rem);
+        margin-top: clamp(0.75rem, 5vh, 3rem);
+    }
+
+    .intro,
+    .member {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .member img {
+        width: min(82%, 21rem);
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact {
+        background-position: 68% center;
+    }
+}
+
+@media (max-width: 25rem) {
+    :root {
+        --menu-height: 7.25rem;
+    }
+
+    .site-header {
+        padding-top: 0.75rem;
+    }
+
+    .menu {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
